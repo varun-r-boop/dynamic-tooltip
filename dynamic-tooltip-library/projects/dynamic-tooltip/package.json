@@ -1,0 +1,13 @@
+{
+  "name": "@vr-boop/dynamic-tooltip",
+  "version": "1.0.3",
+  "peerDependencies": {
+    "@angular/common": ">=15.0.0 <18.0.0",
+    "@angular/core": ">=15.0.0 <18.0.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/public-api.ts"
+    }
+  }
+}
