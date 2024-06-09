@@ -8,6 +8,7 @@ A dynamic tooltip directive for Angular that displays tooltips based on multiple
 - [Usage](#usage)
   - [Basic Setup](#basic-setup)
   - [Tooltip Conditions](#tooltip-conditions)
+  - [Tooltip CSS](#tooltip-css)
 - [Contributing](#contributing)
 
 ## Installation
@@ -56,7 +57,7 @@ import { TooltipCondition } from '@vr-boop/dynamic-tooltip';
 @Component({
   selector: 'app-your-component',
   template: `
-    <div [appDynamicTooltip]="tooltipData">
+    <div class="class-tooltip" [appDynamicTooltip]="tooltipData">
       Hover over me for tooltip
     </div>
   `
@@ -94,7 +95,23 @@ Each condition in the conditions array should be an object with two properties:
 
     condition: A function that takes the data as an argument and returns a boolean indicating whether the condition is met.
     message: A string or a function that returns a string, which will be displayed as the tooltip message if the condition is met.
-  
+    
+## Tooltip CSS
+This is the basic CSS for the tooltip customise this according to your needs replacing your class with the class-tooltip
+``` css
+  .class-tooltip[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  background: black;
+  color: white;
+  position: fixed;
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 75px;
+  left: 50px;
+  font-size: 12px;
+  max-width: 165px;
+}
+```
 
 ## Contributing
 
