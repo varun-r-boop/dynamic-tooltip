@@ -18,7 +18,7 @@ To install the package, run the following command:
 npm install @vr-boop/dynamic-tooltip
 ```
 ## Usage
-Basic Setup
+## Basic Setup
 
 First, import the DynamicTooltipModule into your Angular module:
 
@@ -56,22 +56,21 @@ import { TooltipCondition } from '@vr-boop/dynamic-tooltip';
 @Component({
   selector: 'app-your-component',
   template: `
-    <div [appDynamicTooltip]="tooltipData" [tooltipConditions]="conditions">
+    <div [appDynamicTooltip]="tooltipData">
       Hover over me for tooltip
     </div>
   `
 })
 export class YourComponent {
-  tooltipData: any = {
-    // your data here
-    // example data
+  tooltipData = {
+    data: {
+      // your data here
     usage : number,
     limit : number,
     isTrail : boolean
-  };
-
-  conditions: TooltipCondition[] = [
-    {
+    },
+    conditions: [
+      {
       condition: (data: any) => data.usage >= data.limit,
       message: "Display text 1"
     },
@@ -79,20 +78,21 @@ export class YourComponent {
       condition: (data: any) => data.Trail,
       message: (data: any) => `Display text 2`
     }
-  ];
+    ]
+  };
 }
 ```
 
-Tooltip Conditions
+## Tooltip Conditions
 
-The appDynamicTooltip directive accepts two inputs:
+The appDynamicTooltip directive accepts a single input, tooltipConfig, which is an object containing:
 
-    tooltipData: The data that will be evaluated against the conditions.
-    tooltipConditions: An array of conditions that will determine the tooltip message.
+    data: The data that will be evaluated against the conditions.
+    conditions: An array of conditions that will determine the tooltip message.
 
-Each condition in the tooltipConditions array should be an object with two properties:
+Each condition in the conditions array should be an object with two properties:
 
-    condition: A function that takes the tooltipData as an argument and returns a boolean indicating whether the condition is met.
+    condition: A function that takes the data as an argument and returns a boolean indicating whether the condition is met.
     message: A string or a function that returns a string, which will be displayed as the tooltip message if the condition is met.
   
 
