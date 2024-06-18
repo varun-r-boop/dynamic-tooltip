@@ -1,6 +1,6 @@
 {
   "name": "@vr-boop/dynamic-tooltip",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "peerDependencies": {
     "@angular/common": ">=15.0.0 <18.0.0",
     "@angular/core": ">=15.0.0 <18.0.0"
